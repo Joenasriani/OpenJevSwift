@@ -11,6 +11,16 @@ for Swift developers who want these decisions on device, and for Mac users who w
 from one native binary instead of a Python environment. The [demo app](#try-the-demo-app) shows it
 answering as you type.
 
+## Try OpenJevSwift
+
+**See typed AI decisions on an iPhone.** The existing [TriageDemo](Examples/TriageDemo) uses on-device model probabilities to assess message urgency (yes/no), route it to a team (choice) and rate how upset the customer is (score). The demo responds as the message is typed.
+
+![The triage demo answering a billing complaint as it is typed, on an iPhone simulator](docs/assets/triage-demo.gif)
+
+**Get started:** [Run the Mac server](#quick-start) · [Try the iPhone demo](#try-the-demo-app) · [Read the API documentation](https://algorythm-canada.github.io/OpenJevSwift/) · [Check compatibility and limits](docs/compatibility.md).
+
+**Contribute:** See [CONTRIBUTING.md](CONTRIBUTING.md) and [GitHub Discussions](https://github.com/Algorythm-Canada/OpenJevSwift/discussions). Documentation corrections, reproducibility reports and translation reviews are welcome without modifying Swift source code.
+
 A native Swift implementation of [OpenJev](https://github.com/razorback16/openjev), the open,
 Jev-compatible "System One" decision server. Send it a state and typed questions (`noul`,
 `choice`, `score`); it reads every answer from a model's probabilities rather than generating
@@ -85,8 +95,6 @@ targets: [
 ```
 
 ## Try the demo app
-
-![The triage demo answering a billing complaint as it is typed, on an iPhone simulator](docs/assets/triage-demo.gif)
 
 [Examples/TriageDemo](Examples/TriageDemo) is an iPhone app that answers upstream's README
 example on the device: whether a customer message needs a reply within the hour (`noul`), which
