@@ -2,6 +2,16 @@
 
 [![CI](https://github.com/Algorythm-Canada/OpenJevSwift/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Algorythm-Canada/OpenJevSwift/actions/workflows/ci.yml) [![Fixtures](https://github.com/Algorythm-Canada/OpenJevSwift/actions/workflows/fixtures.yml/badge.svg?branch=main)](https://github.com/Algorythm-Canada/OpenJevSwift/actions/workflows/fixtures.yml) [![Documentation](https://github.com/Algorythm-Canada/OpenJevSwift/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/Algorythm-Canada/OpenJevSwift/actions/workflows/docs.yml)
 
+## Try OpenJevSwift
+
+**On-device typed AI decisions for Swift apps.** Ask a model a yes/no question, choose between options, or assign a score, and receive structured probabilities instead of free-form generated text.
+
+**See it in action:** [Watch the existing iPhone customer-support triage demo](https://github.com/Algorythm-Canada/OpenJevSwift/blob/main/docs/assets/triage-demo.gif) or [open its example project](https://github.com/Algorythm-Canada/OpenJevSwift/tree/main/Examples/TriageDemo). The demo evaluates urgency, routing and customer sentiment as a message is typed.
+
+**Choose your starting point:** [Run the Mac server](#quick-start) · [Build the iPhone demo](https://github.com/Algorythm-Canada/OpenJevSwift/tree/main/Examples/TriageDemo) · [Read API documentation](https://algorythm-canada.github.io/OpenJevSwift/) · [Review compatibility and limits](https://github.com/Algorythm-Canada/OpenJevSwift/blob/main/docs/compatibility.md).
+
+**Contribute without changing Swift code:** Independently verify the setup instructions, report a reproducible documentation issue, or propose corrections to existing translations through [GitHub Discussions](https://github.com/Algorythm-Canada/OpenJevSwift/discussions) and the [contribution guide](https://github.com/Algorythm-Canada/OpenJevSwift/blob/main/CONTRIBUTING.md). Do not claim adoption or performance results without evidence.
+
 A native Swift implementation of [OpenJev](https://github.com/razorback16/openjev), the open,
 Jev-compatible "System One" decision server. Send it a state and typed questions (`noul`,
 `choice`, `score`); it reads every answer from a model's probabilities rather than generating
