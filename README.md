@@ -1,15 +1,36 @@
 [English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português](README.pt-BR.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [العربية](README.ar.md)
 
-# OpenJevSwift
+# OpenJevSwift – On-Device Swift AI for Structured Decisions
+
+**Native Swift AI inference for macOS and iOS, with Jev-compatible typed decisions, Core ML and MLX support, and local execution on Apple Silicon.**
 
 [![CI](https://github.com/Algorythm-Canada/OpenJevSwift/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Algorythm-Canada/OpenJevSwift/actions/workflows/ci.yml) [![Fixtures](https://github.com/Algorythm-Canada/OpenJevSwift/actions/workflows/fixtures.yml/badge.svg?branch=main)](https://github.com/Algorythm-Canada/OpenJevSwift/actions/workflows/fixtures.yml) [![Documentation](https://github.com/Algorythm-Canada/OpenJevSwift/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/Algorythm-Canada/OpenJevSwift/actions/workflows/docs.yml)
 
-Ask a model typed questions about a piece of text (yes or no, which of several options, or how
-much on a scale) and get probabilities back instead of generated text. OpenJevSwift answers them
-locally: on your Mac behind a Jev-compatible HTTP API, or inside your own iPhone or Mac app. It is
-for Swift developers who want these decisions on device, and for Mac users who want OpenJev's API
-from one native binary instead of a Python environment. The [demo app](#try-the-demo-app) shows it
-answering as you type.
+OpenJevSwift is a native **Swift on-device AI** library and **Jev-compatible decision server** for
+structured probabilistic inference. Ask a model typed questions about text – yes/no, one of several
+choices, or a score on a scale – and get model probabilities back instead of generated prose that
+must be parsed afterward.
+
+Run the same decision workflow locally behind an HTTP API on an Apple silicon Mac, or embed it
+directly in an iPhone or Mac app. OpenJevSwift supports **Core ML** and **MLX** backends, provides a
+native alternative to a Python-based OpenJev environment, and keeps decision outputs constrained to
+the requested schema.
+
+## Why OpenJevSwift?
+
+- **On-device AI for Swift:** run structured model inference locally in macOS and iOS applications.
+- **Typed, schema-constrained decisions:** use `noul` for yes/no probability, `choice` for ranked
+  options and `score` for probability across a scale.
+- **Core ML and MLX:** serve Verdict and Laya with Core ML, or DiffusionGemma and JevK5 with MLX.
+- **Jev API compatibility:** use the Jev-compatible HTTP API and existing TypeSafe SDK workflows.
+- **Apple Silicon native:** one `openjev` binary can serve supported models without requiring a
+  Python runtime.
+- **Measured compatibility:** documented fixtures, benchmark results and model-by-model compatibility
+  checks are included in the repository.
+
+Typical uses include local message triage, classification, routing, confidence scoring and other
+applications where a Swift app needs structured AI decisions rather than free-form text generation.
+The [demo app](#try-the-demo-app) shows these decisions updating as you type.
 
 ## Try OpenJevSwift
 
@@ -19,13 +40,13 @@ answering as you type.
 
 **Get started:** [Run the Mac server](#quick-start) · [Try the iPhone demo](#try-the-demo-app) · [Read the API documentation](https://algorythm-canada.github.io/OpenJevSwift/) · [Check compatibility and limits](docs/compatibility.md).
 
-**Contribute:** See [CONTRIBUTING.md](CONTRIBUTING.md) and [GitHub Discussions](https://github.com/Algorythm-Canada/OpenJevSwift/discussions). Documentation corrections, reproducibility reports and translation reviews are welcome without modifying Swift source code.
+**Contribute:** See [CONTRIBUTING.md](CONTRIBUTING.md) and [GitHub Discussions](https://github.com/Algorythm-Canada/OpenJevSwift/discussions). Documentation corrections, reproducibility reports and translation reviews are welcome without modifying Swift source code. If OpenJevSwift is useful to you, **star the repository** to improve discovery, **fork it** to test integrations, or add your organization to [ADOPTERS.md](ADOPTERS.md).
 
-A native Swift implementation of [OpenJev](https://github.com/razorback16/openjev), the open,
-Jev-compatible "System One" decision server. Send it a state and typed questions (`noul`,
-`choice`, `score`); it reads every answer from a model's probabilities rather than generating
-text, so an answer cannot go off-schema: a noul's is the probability of yes, and a choice's or a
-score's the probability of every option, with a confidence. One `openjev` binary serves
+OpenJevSwift implements [OpenJev](https://github.com/razorback16/openjev) natively in Swift as an
+open, Jev-compatible "System One" AI decision server. Send it a state and typed questions
+(`noul`, `choice`, `score`); it reads every answer from a model's probabilities rather than
+generating text, so an answer cannot go off-schema: a noul's is the probability of yes, and a
+choice's or a score's the probability of every option, with a confidence. One `openjev` binary serves
 DiffusionGemma 26B-A4B or JevK5 on MLX, or Verdict or Laya on Core ML, on a Mac, with upstream's
 exact wire API, so TypeSafe's SDKs work against it unchanged; the same libraries answer requests inside an
 iPhone or Mac app.
